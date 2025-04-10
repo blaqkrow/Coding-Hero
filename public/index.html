@@ -439,6 +439,93 @@
                 display: none;
             }
         }
+
+
+    /* Coupon container styling */
+    .coupon {
+      position: relative;
+      background: #fff;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      width: 600px;          /* Base width for larger screens */
+      max-width: 90%;        /* Makes it shrink on smaller devices */
+      padding: 20px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: visible;     /* So decorative circles won't be cut off */
+      margin: 0 auto;
+    }
+
+         /* Decorative circles on the sides */
+    .coupon::before,
+    .coupon::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      background: #eef2f3;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .coupon::before {
+      left: -11px;
+    }
+    .coupon::after {
+      right: -11px;
+    }
+
+    /* Coupon content arranged with flexbox, allowing wrap */
+    .coupon-content {
+      display: flex;
+      flex-wrap: wrap;           /* Wrap text on smaller screens */
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 18px;
+      text-align: center;        /* Helps center text if it wraps */
+    }
+
+    /* Text styles using different font weights */
+    .coupon .title {
+      font-weight: 700;
+      font-size: 24px;
+      color: #333;
+    }
+    .coupon .message {
+      font-weight: 400;
+      color: #666;
+    }
+    .coupon .offer-code {
+      font-weight: 600;
+      font-size: 20px;
+      color: #e74c3c;
+      white-space: nowrap;       /* Keeps code from splitting across lines */
+    }
+
+    /* TikTok link styling */
+    .tiktok-link {
+      color: #1890ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .tiktok-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Optional: tweak font sizes on narrower screens */
+    @media (max-width: 480px) {
+      .coupon-content {
+        font-size: 16px;
+      }
+      .coupon .title {
+        font-size: 20px;
+      }
+      .coupon .offer-code {
+        font-size: 18px;
+      }
+    }
     </style>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://www.codingo.sg/images/herologo.png">
@@ -602,6 +689,19 @@
                     <div class="columns">
                         <div class="column col-12">
                             <h2 class="feature-title">Follow Us on TikTok & Instagram</h2>
+                        </div>
+                        <div class="column col-12">
+                            <div class="coupon">
+                                <div class="coupon-content">
+                                  <span class="title">Special Offer!</span>
+                                  <span class="message">
+                                    Get $5 off by reposting &amp; following us on
+                                    <a class="tiktok-link" href="https://www.tiktok.com/@codingo.sg" target="_blank">
+                                      TikTok
+                                    </a>!
+                                  </span>
+                                </div>
+                              </div>
                         </div>
                         <div class="column col-9 col-sm-12">
                             <div class="yeo-do-content">
